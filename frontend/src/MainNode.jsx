@@ -49,8 +49,10 @@ export default function MainNode({
           type="target"
           position={Position.Left}
           id={`${id}-${inp}`}
-          style={{ 
+          style={{
+            position: "absolute",
             top: 40 + i * 20,
+            left: -8,
             background: "#555",
             width: 8,
             height: 8,
@@ -66,7 +68,9 @@ export default function MainNode({
           position={Position.Right}
           id={`${id}-${out}`}
           style={{ 
+            position: "absolute",
             top: 40 + i * 20,
+            right: -8,
             background: "#555",
             width: 8,
             height: 8,
