@@ -9,6 +9,7 @@ export default function MainNode({
   children,
   width = 200,
   minHeight = 80,
+  style = {},
 }) {
   return (
     <div
@@ -23,6 +24,7 @@ export default function MainNode({
         flexDirection: "column",
         gap: 6,
         fontSize: "0.9em",
+        ...style,
       }}
     >
       {/* Node Header */}
@@ -47,7 +49,12 @@ export default function MainNode({
           type="target"
           position={Position.Left}
           id={`${id}-${inp}`}
-          style={{ top: 40 + i * 20 }}
+          style={{ 
+            top: 40 + i * 20,
+            background: "#555",
+            width: 8,
+            height: 8,
+          }}
         />
       ))}
 
@@ -58,7 +65,12 @@ export default function MainNode({
           type="source"
           position={Position.Right}
           id={`${id}-${out}`}
-          style={{ top: 40 + i * 20 }}
+          style={{ 
+            top: 40 + i * 20,
+            background: "#555",
+            width: 8,
+            height: 8,
+          }}
         />
       ))}
     </div>

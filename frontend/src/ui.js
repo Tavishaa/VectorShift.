@@ -1,7 +1,3 @@
-// ui.js
-// Displays the drag-and-drop UI
-// --------------------------------------------------
-
 import { useState, useRef, useCallback } from 'react';
 import ReactFlow, { Controls, Background, MiniMap } from 'reactflow';
 import { useStore } from './store';
@@ -10,7 +6,13 @@ import { InputNode } from './nodes/inputNode';
 import { LLMNode } from './nodes/llmNode';
 import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
-
+import { SentimentNode } from './nodes/sentimentNode';
+import { ConditionNode } from './nodes/conditionNode';
+import { EmojiNode } from './nodes/EmojiNode';
+import { OperationsNode } from './nodes/operationsNode';
+import { ColorNode } from './nodes/colorNode';
+import { TextTransformNode } from './nodes/textTransformNode';
+import { TimerNode } from './nodes/timerNode';
 import 'reactflow/dist/style.css';
 
 const gridSize = 20;
@@ -20,6 +22,13 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  sentiment: SentimentNode,
+  condition: ConditionNode,
+  emoji: EmojiNode,
+  operations: OperationsNode,
+  color: ColorNode,
+  textTransform: TextTransformNode,
+  timer: TimerNode,
 };
 
 const selector = (state) => ({
@@ -80,7 +89,7 @@ export const PipelineUI = () => {
             addNode(newNode);
           }
         },
-        [reactFlowInstance]
+        [reactFlowInstance, getNodeID, addNode]
     );
 
     const onDragOver = useCallback((event) => {
