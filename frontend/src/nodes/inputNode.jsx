@@ -11,11 +11,11 @@ export const InputNode = ({ id, data }) => {
     <MainNode id={id} title="Input" outputs={["value"]}>
       <label>
         Name:
-        <input value={currName} onChange={(e) => setCurrName(e.target.value)} />
+        <input value={currName} onChange={(e) => setCurrName(e.target.value)} className="form-input" />
       </label>
       <label>
         Type:
-        <select value={inputType} onChange={(e) => setInputType(e.target.value)}>
+        <select value={inputType} onChange={(e) => setInputType(e.target.value)} className="form-select">
           <option value="Text">Text</option>
           <option value="File">File</option>
         </select>

@@ -19,11 +19,7 @@ export const DraggableNode = ({ type, label }) => {
         onDragEnd={onDragEnd}
         draggable
       >
-        {/* Icon placeholder */}
-        <div className="draggable-node-icon">
-          {label.charAt(0)}
-        </div>
-        
+
         <span className="draggable-node-label">
           {label}
         </span>

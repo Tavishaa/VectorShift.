@@ -13,6 +13,7 @@ export const TimerNode = ({ id, data }) => {
       interval = setInterval(() => {
         const now = Date.now();
         const elapsedSeconds = Math.floor((now - startTime) / 1000);
+        
         setElapsed(elapsedSeconds);
         
         if (elapsedSeconds >= duration) {
@@ -42,6 +43,9 @@ export const TimerNode = ({ id, data }) => {
     if (isRunning) {
       const remaining = Math.max(0, duration - elapsed);
       return remaining > 0 ? `Running: ${remaining}s left` : "Time's up!";
+    }
+    if (elapsed >= duration) {
+      return "Time's up!";
     }
     return elapsed > 0 ? `Stopped at ${elapsed}s` : "Ready to start";
   };
@@ -84,7 +88,7 @@ export const TimerNode = ({ id, data }) => {
         </button>
         <button 
           onClick={handleReset}
-          className="btn btn-secondary"
+          className="btn btn-primary"
         >
           🔄 Reset
         </button>

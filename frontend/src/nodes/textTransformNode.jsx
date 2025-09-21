@@ -48,8 +48,8 @@ export const TextTransformNode = ({ id, data }) => {
           <option value="camel">camelCase</option>
         </select>
       </div>
-      <div className="result-display-code">
-        Transformed Text: {transformText(text, caseType)}
+      <div style={{fontSize: "1em"}}>
+        <span style={{color: "#6C5CE7", fontWeight:"bold"}}>Transformed Text:</span> {transformText(text, caseType)}
       </div>
     </MainNode>
   );

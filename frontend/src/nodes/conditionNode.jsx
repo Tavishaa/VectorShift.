@@ -33,15 +33,18 @@ export const ConditionNode = ({ id, data }) => {
           value={condition}
           onChange={(e) => setCondition(e.target.value)}
           style={{ marginLeft: 6 }}
+          className="form-input"
         />
       </label>
       <button
-        onClick={handleEvaluate} >
+        onClick={handleEvaluate}
+        className="btn btn-primary"
+      >
         Evaluate
       </button>
       {result !== null && (
         <div style={{ marginTop: 6 }}>
-          Result: {result === "Invalid" ? "Invalid Expression" : result ? "True" : "False"}
+          <span style={{color: "#6C5CE7", fontWeight:"bold"}}>Result:</span> {result === "Invalid" ? "Invalid Expression" : result ? "True" : "False"}
         </div>
       )}
     </MainNode>

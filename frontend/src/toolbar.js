@@ -8,7 +8,7 @@ export const PipelineToolbar = () => {
                 <h2 className="header-title">
                     VectorShift Pipeline Builder
                 </h2>
-                <p className="header-subtitle">
+                <p className="header-subtitle" style={{ marginBottom: "12px" }}>
                     Drag nodes to build your pipeline
                 </p>
                 <div className="toolbar">

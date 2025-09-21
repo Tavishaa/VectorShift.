@@ -33,7 +33,7 @@ export const SubmitButton = () => {
         onClick={handleSubmit}
         className="btn btn-primary btn-lg"
       >
-        🚀 Submit Pipeline
+        Submit
       </button>
     </div>
   );

@@ -24,47 +24,40 @@ export const TextNode = ({ id, data }) => {
       {/* Left variable box */}
       {variables.length > 0 && (
         <div
+          className="result-display"
           style={{
             position: "absolute",
             left: -170,                
             top: 0,
             width: 160,
             minHeight: dynamicHeight,
-            background: "#f9f9ff",
-            border: "1px solid #ccc",
-            borderRadius: 6,
-            padding: "6px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "flex-start",
             gap: "6px",
           }}
         >
-          <div
-            style={{
-              fontSize: "0.75em",
-              fontWeight: "600",
-              marginBottom: 4,
-              color: "#555",
-            }}
-          >
-            Inputs
+          <div className="form-label" style={{ marginBottom: 4, fontSize: "0.8em", color: "#ffffff", fontWeight: "700", textShadow: "0 0 4px rgba(255, 255, 255, 0.5)" }}>
+            Variables
           </div>
           {variables.map((variable) => (
             <div
               key={variable}
+              className="form-input"
               style={{
                 position: "relative",
-                height: 28,
-                background: "#fff",
-                border: "1px solid #ddd",
-                borderRadius: 4,
+                height: 32,
                 display: "flex",
                 alignItems: "center",
-                padding: "0 8px",
-                fontSize: "0.8em",
+                padding: "0 10px",
+                fontSize: "0.85em",
                 fontFamily: "monospace",
-                color: "#333",
+                marginBottom: 0,
+                color: "#ffffff",
+                fontWeight: "600",
+                background: "rgba(255, 255, 255, 0.15)",
+                border: "2px solid rgba(108, 92, 231, 0.7)",
+                textShadow: "0 0 2px rgba(255, 255, 255, 0.3)",
               }}
             >
               {variable}
@@ -95,25 +88,27 @@ export const TextNode = ({ id, data }) => {
         width={dynamicWidth}
         minHeight={dynamicHeight}
       >
-        <label style={{ display: "block", width: "100%" }}>
-          Text:
+        <div className="form-group">
+          <label className="form-label">Text:</label>
           <textarea
             value={currText}
             onChange={(e) => setCurrText(e.target.value)}
+            className="form-input"
             style={{
-              width: "100%",
               height: dynamicHeight - 40,
               resize: "none",
-              border: "1px solid #ccc",
-              borderRadius: 4,
-              padding: 4,
               fontFamily: "monospace",
-              fontSize: "0.9em",
+              fontSize: "0.95em",
               boxSizing: "border-box",
               overflow: "hidden",
+              color: "#ffffff",
+              fontWeight: "600",
+              background: "rgba(255, 255, 255, 0.15)",
+              border: "2px solid rgba(108, 92, 231, 0.7)",
+              textShadow: "0 0 2px rgba(255, 255, 255, 0.3)",
             }}
           />
-        </label>
+        </div>
       </MainNode>
     </div>
   );
