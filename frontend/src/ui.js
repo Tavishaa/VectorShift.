@@ -63,8 +63,7 @@ export const PipelineUI = () => {
           if (event?.dataTransfer?.getData('application/reactflow')) {
             const appData = JSON.parse(event.dataTransfer.getData('application/reactflow'));
             const type = appData?.nodeType;
-      
-            // check if the dropped element is valid
+
             if (typeof type === 'undefined' || !type) {
               return;
             }
@@ -114,7 +113,6 @@ export const PipelineUI = () => {
               background: '#0f0f0f',
           }}
       >
-          {/* Subtle gradient edges */}
           <defs>
               <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stopColor="#6c5ce7" />
