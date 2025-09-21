@@ -22,25 +22,47 @@ export const OperationsNode = ({ id, data }) => {
   }, [num1, num2, operation]);
 
   return (
-    <MainNode id={id} title="Operations" inputs={["num1","num2"]} outputs={["result"]}>
-      <label>
-        Num 1:
-        <input type="number" value={num1} onChange={(e) => setNum1(Number(e.target.value))} />
-      </label>
-      <label>
-        Num 2:
-        <input type="number" value={num2} onChange={(e) => setNum2(Number(e.target.value))} />
-      </label>
-      <label>
-        Operation:
-        <select value={operation} onChange={(e) => setOperation(e.target.value)}>
-          <option value="add">Add</option>
-          <option value="subtract">Subtract</option>
-          <option value="multiply">Multiply</option>
-          <option value="divide">Divide</option>
+    <MainNode id={id} title="Math Operations" inputs={["num1","num2"]} outputs={["result"]}>
+      <div className="form-group">
+        <label className="form-label">
+          Number 1:
+        </label>
+        <input 
+          type="number" 
+          value={num1} 
+          onChange={(e) => setNum1(Number(e.target.value))}
+          className="form-input"
+        />
+      </div>
+      <div className="form-group">
+        <label className="form-label">
+          Number 2:
+        </label>
+        <input 
+          type="number" 
+          value={num2} 
+          onChange={(e) => setNum2(Number(e.target.value))}
+          className="form-input"
+        />
+      </div>
+      <div className="form-group">
+        <label className="form-label">
+          Operation:
+        </label>
+        <select 
+          value={operation} 
+          onChange={(e) => setOperation(e.target.value)}
+          className="form-select"
+        >
+          <option value="add">➕ Add</option>
+          <option value="subtract">➖ Subtract</option>
+          <option value="multiply">✖️ Multiply</option>
+          <option value="divide">➗ Divide</option>
         </select>
-      </label>
-      <div>Result: {result}</div>
+      </div>
+      <div className="result-display">
+        Result: {result}
+      </div>
     </MainNode>
   );
 };

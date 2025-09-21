@@ -13,34 +13,21 @@ export default function MainNode({
 }) {
   return (
     <div
+      className="node"
       style={{
         width,
         minHeight,
-        border: "1px solid #333",
-        borderRadius: 6,
-        background: "#fff",
-        padding: 8,
-        display: "flex",
-        flexDirection: "column",
-        gap: 6,
-        fontSize: "0.9em",
         ...style,
       }}
     >
       {/* Node Header */}
-      <div
-        style={{
-          fontWeight: "bold",
-          borderBottom: "1px solid #ddd",
-          paddingBottom: 4,
-          marginBottom: 4,
-        }}
-      >
+      <div className="node-header">
+        <div className="node-header-icon" />
         {title}
       </div>
 
       {/* Node-Specific UI */}
-      <div>{children}</div>
+      <div style={{ flex: 1 }}>{children}</div>
 
       {/* Input handles (left side) */}
       {inputs.map((inp, i) => (
@@ -49,13 +36,10 @@ export default function MainNode({
           type="target"
           position={Position.Left}
           id={`${id}-${inp}`}
+          className="handle handle-input"
           style={{
-            position: "absolute",
-            top: 40 + i * 20,
-            left: -8,
-            background: "#555",
-            width: 8,
-            height: 8,
+            top: 50 + i * 25,
+            left: -6,
           }}
         />
       ))}
@@ -67,13 +51,10 @@ export default function MainNode({
           type="source"
           position={Position.Right}
           id={`${id}-${out}`}
+          className="handle handle-output"
           style={{ 
-            position: "absolute",
-            top: 40 + i * 20,
-            right: -8,
-            background: "#555",
-            width: 8,
-            height: 8,
+            top: 50 + i * 25,
+            right: -6,
           }}
         />
       ))}

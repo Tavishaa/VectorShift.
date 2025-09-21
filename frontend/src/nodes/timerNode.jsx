@@ -54,33 +54,46 @@ export const TimerNode = ({ id, data }) => {
 
   return (
     <MainNode id={id} title="Timer" outputs={["status"]}>
-      <label>
-        Duration (seconds):
+      <div className="form-group">
+        <label className="form-label">
+          Duration (seconds):
+        </label>
         <input 
           type="number" 
           value={duration} 
           onChange={(e) => setDuration(Number(e.target.value))}
           min="1"
           max="3600"
+          className="form-input"
         />
-      </label>
-      <div style={{ display: "flex", gap: "4px", marginTop: "6px" }}>
-        <button onClick={handleStart} disabled={isRunning}>
-          Start Timer
+      </div>
+      <div className="btn-group">
+        <button 
+          onClick={handleStart} 
+          disabled={isRunning}
+          className={`btn ${isRunning ? 'btn-secondary' : 'btn-primary'}`}
+        >
+          ▶️ Start
         </button>
-        <button onClick={handleStop} disabled={!isRunning}>
-          Stop Timer
+        <button 
+          onClick={handleStop} 
+          disabled={!isRunning}
+          className={`btn ${!isRunning ? 'btn-secondary' : 'btn-danger'}`}
+        >
+          ⏸️ Stop
         </button>
-        <button onClick={handleReset}>
-          Reset Timer
+        <button 
+          onClick={handleReset}
+          className="btn btn-secondary"
+        >
+          🔄 Reset
         </button>
       </div>
-      <div style={{ 
-        marginTop: "6px", 
-        color: getStatusColor(), 
-        fontWeight: "bold" 
+      <div className={`status ${isRunning ? 'status-success' : elapsed > 0 ? 'status-warning' : 'status-info'}`} style={{ 
+        borderColor: getStatusColor(),
+        color: getStatusColor(),
       }}>
-        Status: {getStatus()}
+        {getStatus()}
       </div>
     </MainNode>
   );

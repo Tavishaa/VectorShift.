@@ -27,9 +27,13 @@ export const SubmitButton = () => {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <button type="button" onClick={handleSubmit}>
-        Submit
+    <div className="footer">
+      <button 
+        type="button" 
+        onClick={handleSubmit}
+        className="btn btn-primary btn-lg"
+      >
+        🚀 Submit Pipeline
       </button>
     </div>
   );

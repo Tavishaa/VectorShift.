@@ -26,30 +26,29 @@ export const TextTransformNode = ({ id, data }) => {
 
   return (
     <MainNode id={id} title="Text Transformer" inputs={["text"]} outputs={["transformed"]}>
-      <label>
-        Text:
+      <div className="form-group">
+        <label className="form-label">
+          Text:
+        </label>
         <input 
           value={text} 
           onChange={(e) => setText(e.target.value)}
           placeholder="Enter text to transform"
+          className="form-input"
         />
-      </label>
-      <label>
-        Case:
-        <select value={caseType} onChange={(e) => setCaseType(e.target.value)}>
+      </div>
+      <div className="form-group">
+        <label className="form-label">
+          Case:
+        </label>
+        <select value={caseType} onChange={(e) => setCaseType(e.target.value)} className="form-select">
           <option value="upper">UPPERCASE</option>
           <option value="lower">lowercase</option>
           <option value="title">Title Case</option>
           <option value="camel">camelCase</option>
         </select>
-      </label>
-      <div style={{ 
-        backgroundColor: "#f5f5f5", 
-        padding: "4px 8px", 
-        borderRadius: "4px",
-        fontFamily: "monospace",
-        marginTop: "6px"
-      }}>
+      </div>
+      <div className="result-display-code">
         Transformed Text: {transformText(text, caseType)}
       </div>
     </MainNode>

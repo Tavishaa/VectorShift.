@@ -99,25 +99,44 @@ export const PipelineUI = () => {
 
     return (
         <>
-        <div ref={reactFlowWrapper} style={{width: '100wv', height: '70vh'}}>
+        <div ref={reactFlowWrapper} className="workflow-area">
             <ReactFlow
-                nodes={nodes}
-                edges={edges}
-                onNodesChange={onNodesChange}
-                onEdgesChange={onEdgesChange}
-                onConnect={onConnect}
-                onDrop={onDrop}
-                onDragOver={onDragOver}
-                onInit={setReactFlowInstance}
-                nodeTypes={nodeTypes}
-                proOptions={proOptions}
-                snapGrid={[gridSize, gridSize]}
-                connectionLineType='smoothstep'
-            >
-                <Background color="#aaa" gap={gridSize} />
-                <Controls />
-                <MiniMap />
-            </ReactFlow>
+          nodes={nodes}
+          edges={edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onConnect={onConnect}
+          onDrop={onDrop}
+          onDragOver={onDragOver}
+          onInit={setReactFlowInstance}
+          nodeTypes={nodeTypes}
+          proOptions={proOptions}
+          snapGrid={[gridSize, gridSize]}
+          connectionLineType='smoothstep'
+          style={{
+              background: '#0f0f0f',
+          }}
+      >
+          {/* Subtle gradient edges */}
+          <defs>
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#6c5ce7" />
+                  <stop offset="50%" stopColor="#a29bfe" />
+                  <stop offset="100%" stopColor="#fd79a8" />
+              </linearGradient>
+          </defs>
+
+          <Background 
+              color="rgba(255, 255, 255, 0.2)" 
+              gap={gridSize}
+              size={2}
+              variant="dots"
+          />
+          <Controls />
+          <MiniMap 
+              nodeColor={(node) => '#6c5ce7'}
+          />
+      </ReactFlow>
         </div>
         </>
     )
